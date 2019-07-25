@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const useDarkMode = () => {
@@ -6,9 +6,12 @@ const useDarkMode = () => {
 
   useEffect(() => {
     const body = document.querySelector("body");
-    darMode ? body.classList.toggle("dark-mode") : null;
+    darkMode
+      ? body.classList.add("dark-mode")
+      : body.classList.remove("dark-mode");
   }, [darkMode]);
-  console.log(useDarkMode());
 
   return [darkMode, setDarkMode];
 };
+
+export default useDarkMode;
